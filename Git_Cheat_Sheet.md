@@ -1,8 +1,11 @@
+# Git
+----
+
 [TOC]
 
-# Git Command
+# 2. Git Basics
 
-## Git Basics - Getting a Git Repository
+## 2.1 Getting a Git Repository
 ### init
 
 
@@ -12,7 +15,7 @@
 **example**: 
 `git clone ssh://git@10.137.20.113:2222/root/test.git`
 
-## Git Basics - Viewing the Commit History
+## 2.2 Viewing the Commit History
 ### log 
 
 **_Table_** Common options to `git log`
@@ -24,7 +27,7 @@
 `--shortstat     `| Display only the  changed/insertions/deletions line from the --stat  command.
 `--name-only     `| Show the list of files modified  after the commit information.
 `--name-status   `| Show the list of files affected  with added/modified/deleted information as well.
-`--abbrev-commit `| how only the first fewcharacters   of the SHA-1 checksum instead of all 40.
+`--abbrev-commit `| Show only the first fewcharacters   of the SHA-1 checksum instead of all 40.
 `--relative-date `| Display the date in a relative  format (for example, “2 weeks ago”) instead of using  the full date format.
 `--graph         `| Display an ASCII graph of the  branch and merge history beside the log output.
 `--pretty        `| Show commits in an alternateformat. Options include oneline, short, full, fuller, and format (where you specify your own format).
@@ -85,5 +88,55 @@ ca82a6d - Scott Chacon, 6 years ago : changed the version number
     b0ad11e - pull: allow "git pull origin \$something:\$current_branch" into an unborn branch
 
 
-## Git Basics - Undoing Things
+## 2.3 Undoing Things
 
+- `git commit --amend` - all you’ll change is your commit message.
+- example:
+  > \$ git commit -m 'initial commit'
+  > \$ git add forgotten_file
+  > \$ git commit --amend
+
+  You end up with a single commit – the second commit replaces the results of the first.
+
+- `git reset HEAD <file>...` - unstage a staged file.
+- `git checkout -- <file>...` - revert file back to what it looked like when you last committed. **_DANGEROUS!_** Better to use [Git Branching](#2.-Git-Basics).
+
+# 3. Git Branching
+
+```
+fef
+f
+f
+f
+f
+f
+ff
+f
+ff
+
+f
+f
+
+f
+f
+f
+f
+f
+
+f
+
+ff
+
+f
+fd
+fds
+f
+sdf
+
+fd
+fd
+fd
+f
+d
+fd
+f

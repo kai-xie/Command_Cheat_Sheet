@@ -1,5 +1,9 @@
-[TOC]
 
+
+# Atom
+--------------
+
+[TOC]
 # Atom Selections
 
 - `Shift+Up` - Select up
@@ -56,20 +60,5 @@
 
 
 
-sdfj
-
-
-
-> sd 
->
->
->
-> sf
-"sfes"
-dfe
-f
-wf
-s
-f
 
 [pic1]: ./pics/Atom/multiple-cursors.gif "Cool hah~"
