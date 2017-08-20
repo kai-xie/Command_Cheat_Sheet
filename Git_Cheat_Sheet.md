@@ -101,6 +101,9 @@ ca82a6d - Scott Chacon, 6 years ago : changed the version number
 - `git reset HEAD <file>...` - unstage a staged file.
 - `git checkout -- <file>...` - revert file back to what it looked like when you last committed. **_DANGEROUS!_** Better to use [Git Branching](#2.-Git-Basics).
 
+## 2.5  Working with Remotes
+
+
 # 3. Git Branching
 
 ```
