@@ -13,9 +13,10 @@
 `git clone ssh://git@10.137.20.113:2222/root/test.git`
 
 ## Git Basics - Viewing the Commit History
-###log 
+### log 
 
 **_Table_** Common options to `git log`
+
 **Option**	| **Description**
 :----- | ---
 `-p              `| Show the patch introduced with  each commit.
