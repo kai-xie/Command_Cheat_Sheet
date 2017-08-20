@@ -8,8 +8,6 @@
 ## 2.1 Getting a Git Repository
 ### init
 
-
-
 ### clone
 - `git clone ssh://git@hostname:port/.../xxx.git` - clone the repo from a server whose port is not 22
 **example**: 
@@ -57,9 +55,11 @@
   `%cr`| Committer date, relative
   `%s `| Subject
   
-  >$ git log --pretty=format:"%h - %an, %ar : %s"
-ca82a6d - Scott Chacon, 6 years ago : changed the version number
-085bb3b - Scott Chacon, 6 years ago : removed unnecessary test
+  > ``` git
+  > $ git log --pretty=format:"%h - %an, %ar : %s"
+  > ca82a6d - Scott Chacon, 6 years ago : changed the version number
+  > 085bb3b - Scott Chacon, 6 years ago : removed unnecessary test
+  > ```
 
 - `git log --pretty=format:"%h %s" --graph` -adds a nice little ASCII graph showing your branch and merge history
 
@@ -78,31 +78,77 @@ ca82a6d - Scott Chacon, 6 years ago : changed the version number
 
   - `git log --since=2.weeks`
   - **example**:
-  >  $ git log --pretty="%h - %s" --author=gitster --since="2008-10-01" 
-    --before="2008-11-01" --no-merges -- t/
-    5610e3b - Fix testcase failure when extended attributes are in use
-    acd3b9e - Enhance hold_lock_file_for_{update,append}() API
-    f563754 - demonstrate breakage of detached checkout with symbolic link HEAD
-    d1a43f2 - reset --hard/read-tree --reset -u: remove unmerged new paths
-    51a94af - Fix "checkout --track -b newbranch" on detached HEAD
-    b0ad11e - pull: allow "git pull origin \$something:\$current_branch" into an unborn branch
+    >  ``` git
+    > $ git log --pretty="%h - %s" --author=gitster --since="2008-10-01" --before="2008-11-01" --no-merges -- t/
+    > 5610e3b - Fix testcase failure when extended attributes are in use
+    > acd3b9e - Enhance hold_lock_file_for_{update,append}() API
+    > f563754 - demonstrate breakage of detached checkout with symbolic link HEAD
+    > d1a43f2 - reset --hard/read-tree --reset -u: remove unmerged new paths
+    > 51a94af - Fix "checkout --track -b newbranch" on detached HEAD
+    > b0ad11e - pull: allow "git pull origin \$something:\$current_branch" into an unborn branch
 
 
 ## 2.3 Undoing Things
 
 - `git commit --amend` - all you’ll change is your commit message.
 - example:
-  > \$ git commit -m 'initial commit'
-  > \$ git add forgotten_file
-  > \$ git commit --amend
+  > ``` git
+  > $ git commit -m 'initial commit'
+  > $ git add forgotten_file
+  > $ git commit --amend
+  > ```
 
   You end up with a single commit – the second commit replaces the results of the first.
 
 - `git reset HEAD <file>...` - unstage a staged file.
-- `git checkout -- <file>...` - revert file back to what it looked like when you last committed. **_DANGEROUS!_** Better to use [Git Branching](#2.-Git-Basics).
+- `git checkout -- <file>...` - revert file back to what it looked like when you last committed. **_DANGEROUS!_** Better to use [Git Branching](#3-Git-Basics).
 
 ## 2.5  Working with Remotes
 
+### remote
+
+- `git remote -v` - shows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote
+- `git remote add <shortname> <url>` - add a new remote Git repository as a shortname you can reference easily
+- example:
+  > ```git
+  > $ git remote add pb https://github.com/paulboone/ticgit
+  > $ git remote -v
+  > origin	https://github.com/schacon/ticgit (fetch)
+  > origin	https://github.com/schacon/ticgit (push)
+  > pb	https://github.com/paulboone/ticgit (fetch)
+  > pb	https://github.com/paulboone/ticgit (push)
+  > ```
+
+- `git fetch [remote-name]` - only downloads the data to your local repository – it doesn’t automatically merge it with any of your work or modify what you’re currently working on. You have to merge it manually into your work when you’re ready.
+
+- `git push [remote-name] [branch-name]` - If you want to push your master branch to your `origin` server. Usually, 
+  > ``` git
+  > $ git push origin master
+  > ```
+
+- `git remote show [remote-name]` - see more information about a particular remote. Usually, 
+  > ``` git
+  > $ git remote show origin
+  > ```
+
+- `git remote rename` 
+  > ``` git
+  > $ git remote rename pb paul
+  > $ git remote
+  > origin
+  > paul
+  > ```
+
+- `git remote remove` or `git remote rm`:
+  > ``` git
+  > $ git remote remove paul
+  > $ git remote
+  > origin
+  > ```
+
+## 2.6 Tagging
+
+- 
 
 # 3. Git Branching
 
