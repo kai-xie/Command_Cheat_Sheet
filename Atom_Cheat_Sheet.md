@@ -72,4 +72,4 @@ wf
 s
 f
 
-[pic1]: http://flight-manual.atom.io/using-atom/images/multiple-cursors.gif "Cool hah~"
+[pic1]: ./pics/Atom/multiple-cursors.gif "Cool hah~"
