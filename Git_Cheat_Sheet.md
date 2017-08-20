@@ -101,7 +101,7 @@
   You end up with a single commit – the second commit replaces the results of the first.
 
 - `git reset HEAD <file>...` - unstage a staged file.
-- `git checkout -- <file>...` - revert file back to what it looked like when you last committed. **_DANGEROUS!_** Better to use [Git Branching](#3-Git-Basics).
+- `git checkout -- <file>...` - revert file back to what it looked like when you last committed. **_DANGEROUS!_** Better to use [Git Branching](#3-git-branching).
 
 ## 2.5  Working with Remotes
 
