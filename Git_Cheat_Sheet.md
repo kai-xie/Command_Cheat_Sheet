@@ -13,7 +13,10 @@
 **example**: 
 `git clone ssh://git@10.137.20.113:2222/root/test.git`
 
-## 2.2 Viewing the Commit History
+## 2.2 Recording Changes to the Repository
+
+
+## 2.3 Viewing the Commit History
 ### log 
 
 **_Table_** Common options to `git log`
@@ -88,7 +91,7 @@
     > b0ad11e - pull: allow "git pull origin \$something:\$current_branch" into an unborn branch
 
 
-## 2.3 Undoing Things
+## 2.4 Undoing Things
 
 - `git commit --amend` - all you’ll change is your commit message.
 - example:
@@ -101,7 +104,7 @@
   You end up with a single commit – the second commit replaces the results of the first.
 
 - `git reset HEAD <file>...` - unstage a staged file.
-- `git checkout -- <file>...` - revert file back to what it looked like when you last committed. **_DANGEROUS!_** Better to use [Git Branching](#3-git-branching).
+- `git checkout -- <file>...` - revert file back to what it looked like when you last committed. **_DANGEROUS!_** Better to use <a name="2.4_git_checkout">[Git Branching<sup>[1]</sup>](#3-git-branching).</a>
 
 ## 2.5  Working with Remotes
 
@@ -227,10 +230,15 @@ start the command with a ! character.
 `git config --global alias.visual '!gitk'`
 
 
+ 
+
+
+#3. Git Branching
+[Back to 2.4<sup>[1]</sup>](#2.4_git_checkout)
 
 
 
-# 3. Git Branching
+
 
 ```
 fef
