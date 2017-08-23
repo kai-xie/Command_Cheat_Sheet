@@ -233,7 +233,7 @@ start the command with a ! character.
  
 
 
-#3. Git Branching
+# 3. Git Branching
 
 [Back to 2.4<sup>[1]</sup>](#2.4_git_checkout)
 
