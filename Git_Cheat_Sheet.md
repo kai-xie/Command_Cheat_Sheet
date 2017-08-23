@@ -148,7 +148,87 @@
 
 ## 2.6 Tagging
 
-- 
+- `git tag` - list all git tags.
+- `git tag -l "v1.8.5*"` - only interest in v1.8.5*
+
+Git uses two main types of tags: **lightweight** and **annotated**.
+
+**Annotated Tags**
+
+- `git tag -a v1.4 -m "my version 1.4"` - The -m specifies a tagging message, which is stored with the tag.
+- `git show v1.4` - show the information of v1.4.
+
+**Lightweight Tags**
+
+- `git tag v1.4-lw` - create a lightweiight tag v1.4-lw.
+
+**Tagging Later**
+
+> ``` git
+> $ git log --pretty=oneline
+> 15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch 'experiment'
+> a6b4c97498bd301d84096da251c98a07c7723e65 beginning write support
+> 0d52aaab4479697da7686c15f77a3d64d9165190 one more thing
+> 6d52a271eda8725415634dd79daabbc4d9b6008e Merge branch 'experiment'
+> 0b7434d86859cc7b8c3d5e1dddfed66ff742fcbc added a commit function
+> 4682c3261057305bdd616e23b64b0857d832627b added a todo file
+> 166ae0c4d3f420721acbb115cc33848dfcc2121a started write support
+> 9fceb02d0ae598e95dc970b74767f19372d61af8 updated rakefile
+> 964f16d36dfccde844893cac5b347e7b3d44abbc commit the todo
+> 8a5cbc430f1a9c3d00faaeffd07798508422908a updated readme
+> ```
+
+- `git tag -a v1.2 9fceb02` - tag the submitted commit.
+
+**Sharing Tags**
+
+Tags need to be pushed explicitly.
+
+- `git push origin v1.5` - push one tag.
+- `git push origin --tags` - push all the tags.
+
+**Checking out Tags**
+
+- `git checkout -b [branchname] [tagname]` - <br> e.g.
+  > ``` git
+  > $ git checkout -b version2 v2.0.0
+  > Switched to a new branch 'version2'
+  > ```
+
+## 2.7 Git Aliases
+
+Examples:
+> ``` git
+> $ git config --global alias.co checkout
+> $ git config --global alias.br branch
+> $ git config --global alias.ci commit
+> $ git config --global alias.st status
+> ```
+
+> ``` git
+> $ git config --global alias.unstage 'reset HEAD --'
+
+The above makes the following equivalent.
+
+> ``` git
+> $ git unstage fileA
+> $ git reset HEAD -- fileA
+> ```
+
+Show the last.
+> ``` git
+> $ git config --global alias.last 'log -1 HEAD'
+> ```
+
+**Run an external command**
+
+start the command with a ! character.
+
+`git config --global alias.visual '!gitk'`
+
+
+
+
 
 # 3. Git Branching
 
