@@ -6,7 +6,6 @@
 
 ### tar
 
-tar 
   **Option** |	**Description**
   :--- | :---
 `tar -cf archive.tar foo bar`  | # Create archive.tarfrom files foo and bar.
