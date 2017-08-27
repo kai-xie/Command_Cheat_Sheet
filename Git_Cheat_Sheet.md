@@ -237,6 +237,90 @@ start the command with a ! character.
 
 [Back to 2.4<sup>[1]</sup>](#2.4_git_checkout)
 
+## 3.1/3.2 Basic Branching and Merging
+
+``` git
+$ git checkout -b iss53
+Switched to a new branch "iss53"
+```
+
+This is shorthand for (make a branch and switch to it):
+
+``` git
+$ git branch iss53
+$ git checkout iss53
+```
+
+- `git merge <branch_name>` merge <branch_name > to the current branch.
+- `git branch -d <branch_name>` delete the branch <branch_name>
+
+## 3.3 Branch Management
+
+- `git branch` - list all branches.
+- `git branch -v` - to see the last commit on each branch.
+- `git branch --merged` - To see which branches are already merged into the branch you’re on.
+- `git branch --no-merged` - To see all the branches that contain work you haven’t yet merged in.
+
+## 3.4/3.5 Branching Workflows / Remote Branches
+
+- `git fetch origin` - fetches any data from server that you don’t yet have, and updates your local database. 
+
+  ![git fetch][remote-branches-3]
+
+- `git push origin serverfix:awesomebranch` - push your local serverfix branch to the awesomebranch branch on the remote project
+- `git checkout -b [branch] [remotename]/[branch]` equals `git checkout --track [remotename]/[branch]` - local brach [branch] will track [remotename]/[branch], just like the local master tracks origin/master when you clone a repo with the default setting.
+- `git checkout -b sf origin/serverfix` - set up a local branch with a different name than the remote branch.
+- `git branch -u origin/serverfix` - If you already have a local branch and want to set it to a remote branch you just pulled down, or want to change the upstream branch you’re tracking, you can use the -u or --set-upstream-to option to git branch to explicitly set it at any time.
+- `git merge @{u}` / `git merge @{upstream}` - equals `git merge origin/master`.
+- `git branch -vv` - list out your local branches with more information including what each branch is tracking and if your local branch is ahead, behind or both.
+  > ``` git
+  > $ git branch -vv
+  > iss53     7e424c3 [origin/iss53: ahead 2] forgot the brackets
+  > master    1ae2a45 [origin/master] deploying index fix
+  > * serverfix f8674d9 [teamone/server-fix-good: ahead 3, behind 1] this should do it
+  > testing   5ea463a trying something new
+  > ```
+
+- `git fetch --all; git branch -vv` - If you want totally up to date ahead and behind numbers, you’ll need to fetch from all your remotes right before running this.
+- 
+
+**Pulling**
+
+> Generally it’s better to simply use the fetch and merge commands explicitly as the magic of git pull can often be confusing.
+
+**Deleting Remote Branches**
+
+`git push origin --delete serverfix` - Basically all this does is remove the pointer from the server. The Git server will generally keep the data there for a while until a garbage collection runs, so if it was accidentally deleted, it’s often easy to recover.
+
+## 3.6 Rebasing
+
+**Basic merge process**:
+
+![Simple divergent history][basic-rebase-1]
+
+![Merging to integrate diverged work history][basic-rebase-2]
+
+**Rebasing**:
+
+> ``` git
+> $ git checkout experiment
+> $ git rebase master
+> First, rewinding head to replay your work on top of it...
+> Applying: added staged command
+> ```
+
+![Rebasing the change introduced in C4 onto C3][basic-rebase-3]
+
+> ``` git
+> $ git checkout master
+> $ git merge experiment
+> ```
+
+![Fast-forwarding the master branch][basic-rebase-4]
+
+
+
+
 
 
 
@@ -278,3 +362,11 @@ f
 d
 fd
 f
+```
+
+[remote-branches-3]:  ./pics/Git/remote-branches-3.png
+[basic-rebase-1]: ./pics/Git/basic-rebase-1.png
+[basic-rebase-2]: ./pics/Git/basic-rebase-2.png
+[basic-rebase-3]: ./pics/Git/basic-rebase-3.png
+[basic-rebase-4]: ./pics/Git/basic-rebase-4.png
+
