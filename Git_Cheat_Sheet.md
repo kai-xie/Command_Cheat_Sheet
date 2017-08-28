@@ -6,8 +6,14 @@
 # 2. Git Basics
 
 ## 2.1 Getting a Git Repository
+
+- `git config --global [key] [value]` - set the value.
+- `git config --global --unset [key]` - unset the value. Or just edit the file `~/.gitconfig`(global config file) or `.git/config` (local config file)
+
 ### init
 
+- `git init`
+- `git init --bare`
 ### clone
 - `git clone ssh://git@hostname:port/.../xxx.git` - clone the repo from a server whose port is not 22
 **example**: 
