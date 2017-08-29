@@ -263,7 +263,10 @@ $ git checkout iss53
 ## 3.3 Branch Management
 
 - `git branch` - list all branches.
+- `git branch -a` - list local & remote branches.
+- `git branch -r ` - list reote branches.
 - `git branch -v` - to see the last commit on each branch.
+- `git branch -vv` - more detailed `git branch -v`. 
 - `git branch --merged` - To see which branches are already merged into the branch you’re on.
 - `git branch --no-merged` - To see all the branches that contain work you haven’t yet merged in.
 
