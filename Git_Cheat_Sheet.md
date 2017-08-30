@@ -19,6 +19,14 @@
 **example**: 
 `git clone ssh://git@10.137.20.113:2222/root/test.git`
 
+### pull / push
+
+- `git pull origin master --allow-unrelated-histories` 
+- `git push ghm HEAD:master --allow-unrelated-histories`
+
+`--allow-unrelated-histories` - solve the "fatal: refusing to merge unrelated histories" problem.
+
+
 ## 2.2 Recording Changes to the Repository
 
 
@@ -258,6 +266,7 @@ $ git checkout iss53
 ```
 
 - `git merge <branch_name>` merge <branch_name > to the current branch.
+- `git merge <branch_name> --allow-unrelated-histories` - 
 - `git branch -d <branch_name>` delete the branch <branch_name>
 
 ## 3.3 Branch Management
@@ -265,6 +274,8 @@ $ git checkout iss53
 - `git branch` - list all branches.
 - `git branch -a` - list local & remote branches.
 - `git branch -r ` - list reote branches.
+- `git branch -m <oldname> <newname>` -  rename a branch while pointed to any branch. 
+- `git branch -m <newname>` - rename the current branch.
 - `git branch -v` - to see the last commit on each branch.
 - `git branch -vv` - more detailed `git branch -v`. 
 - `git branch --merged` - To see which branches are already merged into the branch you’re on.
