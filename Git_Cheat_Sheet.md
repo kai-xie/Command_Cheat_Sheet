@@ -26,12 +26,16 @@
 
 `--allow-unrelated-histories` - solve the "fatal: refusing to merge unrelated histories" problem.
 
+- `git push -u origin featureB:featureBee` - push local branch "featureB" to remote repo `origin`'s branch "featureBee", `-u` is short for `--set-upstream`.
+- 
 
 ## 2.2 Recording Changes to the Repository
 
 
 ## 2.3 Viewing the Commit History
 ### log 
+
+- `git log contrib --not master` = `git log master..contrib` - list the commits in contrib but not in master (my understanding: the history change path from master to contrib.)
 
 **_Table_** Common options to `git log`
 
@@ -339,7 +343,20 @@ $ git checkout iss53
 ![Fast-forwarding the master branch][basic-rebase-4]
 
 
+# 5. Distributed Git
 
+## 5.3 Maintaining a Project
+
+- `git branch sc/ruby_client master` - create the branch based off your `master` branch
+- `git checkout -b sc/ruby_client master` - create the branch based off your `master` branch and switch to it.
+
+- `git diff master...contrib` - do a diff between the last commit of the branch you’re on and its common ancestor with another branch.
+  equals: 
+  > ``` git
+  > $ git merge-base contrib master
+  > 36c7dba2c95e6bbb78dfa822519ecfec6e1ca649 // this is the common base of contrib and master
+  > $ git diff 36c7db
+  > ```
 
 
 
