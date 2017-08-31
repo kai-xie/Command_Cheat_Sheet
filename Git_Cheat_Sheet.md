@@ -359,6 +359,82 @@ $ git checkout iss53
   > ```
 
 
+# 7. Git Tools
+
+## 7.1 Revision Selection
+
+**Commit Ranges**
+
+**Double Dot**
+
+- `git log refA..refB` 
+- `git log ^refA refB` 
+- `git log refB --not refA` 
+all above are equal: show the log in refB but not in refA (the commit log from the common base of refA and refB to refB).
+
+**Triple Dot**
+
+> ``` git
+> $ git log --left-right master...experiment
+> < F
+> < E
+> > D
+> > C
+> ```
+
+The triple-dot syntax specifies all the commits that are reachable by either of two references but not by both of them.
+
+
+
+
+
+
+# 10. Git Internals
+
+## 10.1/10.2 Plumbing and Porcelain / Git Objects
+
+**Git Object**
+
+- `git hash-object` 
+
+  > ``` git
+  > $ echo 'test content' | git hash-object -w --stdin
+  > d670460b4b4aece5915caf5c68d12f560a9fe3e4
+  > ```
+
+  The `-w` tells hash-object to store the object;  `--stdin` tells the command to read the content from stdin;
+
+  > ``` git
+  > $ echo 'version 1' > test.txt
+  > $ git hash-object -w test.txt
+  > 83baae61804e65cc73a7201a7252750c76066a30
+  > ``` 
+
+
+- `git cat-file`
+  > ``` git
+  > $ git cat-file -p   d670460b4b4aece5915caf5c68d12f560a9fe3e4
+  > test content
+  > ```
+
+  pull the content back out of Git with the `cat-file` command; Passing `-p` to it instructs the `cat-file` command to figure out the type of content and display it nicely for you
+
+  **options** | **Description**
+  :--- | :---
+    `-t`  |   show object type
+    `-s`  |   show object size
+    `-e`  |   exit with zero when there'sno error
+    `-p`  |   pretty-print object's content
+
+
+**Tree Object**
+
+
+
+
+
+
+
 
 
 
