@@ -17,7 +17,7 @@
 ### clone
 - `git clone ssh://git@hostname:port/.../xxx.git` - clone the repo from a server whose port is not 22
 **example**: 
-`git clone ssh://git@10.137.20.113:2222/root/test.git`
+`git clone ssh://xieqikai@10.137.20.113:2222/root/test.git`
 
 ### pull / push
 
